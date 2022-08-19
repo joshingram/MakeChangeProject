@@ -66,16 +66,34 @@ kb.close();
 		int numPennies = (int)num_1c;
 		running = running - (numPennies * .01); // line may not be needed or should be modified
 		
-		System.out.println("The customer gets the following: \n" 
-				+ num20Bills + " 20 bills, \n"
-				+ num10Bills + " 10 bills, \n"
-				+ num5Bills + " 5 bills, \n"
-				+ num1Bills + " 1 bills, \n"
-				+ numQuarters + " quarters, \n"
-				+ numDimes + " dimes, \n"
-				+ numNickels + " nickels, \n"
-				+ numPennies + " pennies, \n"
-				);  
+		System.out.println("The customer gets the following change: "); 
+		if (num20Bills > 0)	{	
+		System.out.println(num20Bills + " 20 bill(s)");
+		}
+		if (num10Bills > 0) {
+		System.out.println(num10Bills + " 10 bill(s)");
+		}
+		if (num5Bills > 0) {
+		System.out.println(num5Bills + " 5 bill(s)");
+		}
+		if (num1Bills > 0) {
+			System.out.println(num1Bills + " 1 bill(s)");
+		}
+		if (numQuarters > 0)	{
+			System.out.println(numQuarters + " quarter(s)");
+		}
+		if (numDimes > 0)	{
+			System.out.println(numDimes + " dime(s)");
+		}
+		if (numNickels > 0) {
+			System.out.println(+ numNickels + " nickel(s)");
+		}
+		if (numPennies > 0 ) {
+			System.out.println(numPennies + " penny/pennies");
+		}
+				
+				
+				
 
 	}
 	}
