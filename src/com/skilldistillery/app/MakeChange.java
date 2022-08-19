@@ -33,25 +33,49 @@ kb.close();
 	//}
 
 	//public static String whatChangeDue(double amountToBreakDown) {
-		double num20b = amountToBreakDown / 20;
-			int num20bO = (int)num20b;
-		double running = amountToBreakDown - (num20bO * 20);
-		double num10b = running / 10;
-			int num10bO = (int)num10b;
-		running = running - (num10bO * 10);
+		//number of $20 bills 
+		double num20 = amountToBreakDown / 20;
+			int num20Bills = (int)num20;
+		double running = amountToBreakDown - (num20Bills * 20);
+		//number of $10 bills
+		double num10 = running / 10;
+			int num10Bills = (int)num10;
+		running = running - (num10Bills * 10);
+		//number of $5 bills
+		double num5 = running / 5;
+		int num5Bills = (int)num5;
+		running = running - (num5Bills * 5);
+		//number of $1 bills
+		double num1 = running / 1;
+		int num1Bills = (int)num1;
+		running = running - (num1Bills * 1);
+		//number of Quarters
+		double num_25c = running / .25;
+		int numQuarters = (int)num_25c;
+		running = running - (numQuarters * .25);
+		//number of Dimes
+		double num_10c = running / .1;
+		int numDimes = (int)num_10c;
+		running = running - (numDimes * .1);
+		//number of Nickels
+		double num_5c = running / .05;
+		int numNickels = (int)num_5c;
+		running = running - (numNickels * .05);
+		//number of Pennies
+		double num_1c = running / .01;
+		int numPennies = (int)num_1c;
+		running = running - (numPennies * .01); // line may not be needed or should be modified
 		
-		double num5b = running / 5;
-		int num5bO = (int)num5b;
-		running = running - (num5bO * 5);
-		
-		double num1b = running / 1;
-		int num1bO = (int)num1b;
-		running = running - (num5bO * 1);
-		
-		System.out.println("The customer gets the following: " + num20bO + " 20 bills, \n"
-				+ num10bO + " 10 bills, \n"
-				+ num5bO + " 5 bills, \n"
-				+ num1bO + " 1 bills, \n");  
+		System.out.println("The customer gets the following: \n" 
+				+ num20Bills + " 20 bills, \n"
+				+ num10Bills + " 10 bills, \n"
+				+ num5Bills + " 5 bills, \n"
+				+ num1Bills + " 1 bills, \n"
+				+ numQuarters + " quarters, \n"
+				+ numDimes + " dimes, \n"
+				+ numNickels + " nickels, \n"
+				+ numPennies + " pennies, \n"
+				);  
 
 	}
 	}
