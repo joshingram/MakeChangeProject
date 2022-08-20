@@ -4,17 +4,22 @@ import java.util.Scanner;
 
 public class MakeChange {
 
-	public static void main(String[] args) {
+public static void main(String[] args) {
+		
 		System.out.println("** Cash Register **");
 		System.out.println();
-		menu();
+		double change = menu();
+		if (change > 0) {
+			whatChangeDue(change);
+		}
+		
 	}
 
-	public static void menu() {
+	public static double menu() {
 		// Retrieve an item's price and how much the customer paid
-		double purchasePrice, amountTendered, excess;
+		double purchasePrice, amountTendered, changeDue =0;
 		Scanner kb = new Scanner(System.in);
-		System.out.print("What is the price of the item being purchased?:");
+		System.out.print("What is the price of the item being purchased?: ");
 		purchasePrice = kb.nextDouble();
 
 //				if (purchasePrice <= 0) {
@@ -28,12 +33,12 @@ public class MakeChange {
 		} else if (amountTendered < purchasePrice) {
 			System.out.println("Insufficient funds tendered, ask the customer for more money.");
 		} else {
-			System.out.print("Change is due:");
-			excess = amountTendered - purchasePrice;
-			whatChangeDue(excess);
+			System.out.print("Change due: ");
+			double excess = amountTendered - purchasePrice;
+			changeDue = excess;  //TODO is this step really needed?
 		}
-
 		kb.close();
+		return changeDue;
 
 	}
 
@@ -75,31 +80,71 @@ public class MakeChange {
 		// number of Pennies
 		int num_1c = running / 1;
 
-		// Printout the results
-		System.out.println("Give the customer the following change: ");
+		// Print out the results
+		System.out.println("Give the customer the following: ");
 		if (num20 > 0) {
-			System.out.println(num20 + " $20 bill(s)");
+			if (num20 >1) {
+				System.out.println(num20 + " $20 bills");
+			}
+			else {
+				System.out.println(num20 + " $20 bill");
+			}
 		}
 		if (num10 > 0) {
-			System.out.println(num10 + " $10 bill(s)");
+			if (num10 >1) {
+				System.out.println(num10 + " $10 bills");
+			}
+			else {
+				System.out.println(num10 + " $10 bill");
+			}
 		}
 		if (num5 > 0) {
-			System.out.println(num5 + " $5 bill(s)");
+			if (num5 >1) {
+				System.out.println(num5 + " $5 bills");
+			}
+			else {
+				System.out.println(num5 + " $5 bill");
+			}
 		}
 		if (num1 > 0) {
-			System.out.println(num1 + " $1 bill(s)");
+			if (num1 >1) {
+				System.out.println(num1 + " $1 bills");
+			}
+			else {
+				System.out.println(num1 + " $1 bill");
+			}
 		}
 		if (num_25c > 0) {
-			System.out.println(num_25c + " quarter(s)");
+			if (num_25c >1) {
+				System.out.println(num_25c + " quarters");
+			}
+			else {
+				System.out.println(num_25c + " quarter");
+			}
 		}
 		if (num_10c > 0) {
-			System.out.println(num_10c + " dime(s)");
+			if (num_10c >1) {
+				System.out.println(num_10c + " dimes");
+			}
+			else {
+				System.out.println(num_10c + " dime");
+			}
 		}
 		if (num_5c > 0) {
-			System.out.println(+num_5c + " nickel(s)");
+			if (num_5c >1) {
+				System.out.println(num_5c + " nickels");
+			}
+			else {
+				System.out.println(num_5c + " nickel");
+			}
 		}
 		if (num_1c > 0) {
-			System.out.println(num_1c + " penny/pennies");
+			if (num_1c>1) {
+				System.out.println(num_1c + " pennies");
+			}
+			else {
+				System.out.println(num_1c + " penny");
+			}
 		}
 	}
 }
