@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class MakeChange {
 
-public static void main(String[] args) {
+	public static void main(String[] args) {
 		
 		System.out.println("** Cash Register **");
 		System.out.println();
@@ -12,34 +12,29 @@ public static void main(String[] args) {
 		if (change > 0) {
 			whatChangeDue(change);
 		}
-		
 	}
 
 	public static double menu() {
 		// Retrieve an item's price and how much the customer paid
 		double purchasePrice, amountTendered, changeDue =0;
 		Scanner kb = new Scanner(System.in);
+		
 		System.out.print("What is the price of the item being purchased?: ");
 		purchasePrice = kb.nextDouble();
-
-//				if (purchasePrice <= 0) {
-//					System.out.println("Call a manager, price is $0 or less");
-//				}
 		System.out.print("How much did the customer pay?: ");
 		amountTendered = kb.nextDouble();
+		
 		// Compare amount tendered to price
 		if (amountTendered == purchasePrice) {
 			System.out.println("No change due, thank the customer for their business.");
 		} else if (amountTendered < purchasePrice) {
-			System.out.println("Insufficient funds tendered, ask the customer for more money.");
+			System.out.println("Insufficient funds tendered");
 		} else {
 			System.out.print("Change due: ");
-			double excess = amountTendered - purchasePrice;
-			changeDue = excess;  //TODO is this step really needed?
+			changeDue = amountTendered - purchasePrice;
 		}
 		kb.close();
 		return changeDue;
-
 	}
 
 	public static void whatChangeDue(double amountOver) {
